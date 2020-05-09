@@ -1,6 +1,9 @@
 {
   "name": "swell-widgets",
   "version": "1.0.0",
+  "engines": {
+    "node": "13.9.0"
+  },
   "description": "Swell channel widget for the web",
   "main": "index.js",
   "scripts": {

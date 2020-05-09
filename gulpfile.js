@@ -38,3 +38,7 @@ function css() {
 exports.dev = function () {
   gulp.watch("build/**/*", { ignoreInitial: false }, gulp.series(build, js, css));
 };
+
+exports.prod = function () {
+  gulp.series(build, js, css);
+};
