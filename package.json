@@ -1,5 +1,5 @@
 {
-  "name": "swell-channel-feed",
+  "name": "swell-widgets",
   "version": "1.0.0",
   "description": "Swell channel widget for the web",
   "main": "index.js",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/anecure/swell-channel-feed.git"
+    "url": "git+https://github.com/drivej/swell-widgets.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/anecure/swell-channel-feed/issues"
+    "url": "https://github.com/drivej/swell-widgets/issues"
   },
-  "homepage": "https://github.com/anecure/swell-channel-feed#readme",
+  "homepage": "https://github.com/drivej/swell-widgets#readme",
   "dependencies": {
     "del": "^3.0.0",
     "express": "^4.16.4",
@@ -25,11 +25,8 @@
     "gulp-clean": "^0.3.2",
     "gulp-concat": "^2.6.1",
     "gulp-cssmin": "^0.2.0",
-    "gulp-declare": "^0.3.0",
-    "gulp-handlebars": "^5.0.2",
     "gulp-rename": "^1.2.2",
     "gulp-uglify": "^2.0.0",
-    "gulp-watch": "^4.3.11",
     "gulp-wrap": "^0.14.0",
     "node-fetch": "^2.6.0",
     "openport": "0.0.6",
