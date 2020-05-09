@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Swell Widget Demo</title>
+    <style>
+      pre {
+        color: orange;
+        overflow: auto;
+        width: 100%;
+        display: block;
+      }
+      .pre-wrapper {
+        background-color: #111;
+        border-radius: 5px;
+        margin-top: 20px;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div style="padding: 20px;"><h1>Swell Channel Widget</h1></div>
+    <!-- <div style="display: flex; flex-direction: row;"> -->
+    <div style="padding: 20px;">
+      <h1>Default</h1>
+      <script src="/js/swell-channel-widget-min.js" data-swellid="@user"></script>
+      <div class="pre-wrapper">
+        <pre>
+          <script>
+            document.currentScript.parentNode.textContent = '<script src="/js/swell-channel-widget-min.js" data-swellid="@user"><' + '/script>';
+          </script>
+        </pre>
+      </div>
+    </div>
+    <div style="padding: 20px; flex: 0 0 50%;">
+      <h1>Fixed Size</h1>
+      <script src="/js/swell-channel-widget-min.js" data-swellid="@user" data-width="400px" data-height="400px"></script>
+      <div class="pre-wrapper">
+        <pre>
+          <script>
+            document.currentScript.parentNode.textContent = '<script src="/js/swell-channel-widget-min.js" data-swellid="@user" data-width="400px" data-height="400px"><' + '/script>';
+          </script>
+        </pre>
+      </div>
+    </div>
+    <!-- </div> -->
+    <!-- <div style="display: flex; flex-direction: row;"> -->
+    <div style="padding: 20px; flex: 1 1 50%;">
+      <h1>No Header</h1>
+      <script src="/js/swell-channel-widget-min.js" data-swellid="@user" data-header="0"></script>
+      <div class="pre-wrapper">
+        <pre>
+          <script>
+            document.currentScript.parentNode.textContent = '<script src="/js/swell-channel-widget-min.js" data-swellid="@user" data-header="0"><' + '/script>';
+          </script>
+        </pre>
+      </div>
+    </div>
+    <div style="padding: 20px; flex: 1 1 50%;">
+      <h1>No Scroll</h1>
+      <script src="/js/swell-channel-widget-min.js" data-swellid="@user" data-width="400px" data-scroll="0"></script>
+      <div class="pre-wrapper">
+        <pre>
+          <script>
+            document.currentScript.parentNode.textContent = '<script src="/js/swell-channel-widget-min.js" data-swellid="@user" data-width="400px" data-scroll="0"><' + '/script>';
+          </script>
+        </pre>
+      </div>
+    </div>
+    <!-- </div> -->
+
+    <!-- <p>This is before the widget</p>
+        <div style="width:50%"><script src="/js/swell-channel-widget-min.js" data-swellid="@user" data-limit="3" data-height="600px"></script></div>
+        <p>This is after the widget</p>
+        <script src="/js/swell-channel-widget-min.js" data-swellid="@user"></script>
+        <hr>
+        <script src="/js/swell-channel-widget-min.js" data-swellid="@user" data-width="400px" data-height="400px"></script>
+        <hr>
+        <script src="/js/swell-channel-widget-min.js" data-swellid="@user" data-width="400px" data-height="400px" data-header="0"></script> -->
+
+    <hr />
+  </body>
+</html>

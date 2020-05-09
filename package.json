@@ -1,0 +1,47 @@
+{
+  "name": "swell-channel-feed",
+  "version": "1.0.0",
+  "description": "Swell channel widget for the web",
+  "main": "index.js",
+  "scripts": {
+    "start": "gulp prod && node index",
+    "dev": "gulp dev & node index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anecure/swell-channel-feed.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anecure/swell-channel-feed/issues"
+  },
+  "homepage": "https://github.com/anecure/swell-channel-feed#readme",
+  "dependencies": {
+    "del": "^3.0.0",
+    "express": "^4.16.4",
+    "gulp": "^4.0.2",
+    "gulp-change": "^1.0.0",
+    "gulp-clean": "^0.3.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-cssmin": "^0.2.0",
+    "gulp-declare": "^0.3.0",
+    "gulp-handlebars": "^5.0.2",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^2.0.0",
+    "gulp-watch": "^4.3.11",
+    "gulp-wrap": "^0.14.0",
+    "node-fetch": "^2.6.0",
+    "openport": "0.0.6",
+    "opn": "^5.4.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "@types/gulp-cssmin": "^0.2.0",
+    "babel-core": "^6.26.3",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "gulp-babel": "^8.0.0"
+  }
+}
