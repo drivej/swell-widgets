@@ -1,7 +1,7 @@
 const gulp = require("gulp");
-const uglify = require("gulp-uglify");
+// const uglify = require("gulp-uglify");
 const concat = require("gulp-concat");
-const cssmin = require("gulp-cssmin");
+// const cssmin = require("gulp-cssmin");
 const babel = require("gulp-babel");
 
 function clean(cb) {
@@ -39,6 +39,4 @@ exports.dev = function () {
   gulp.watch("build/**/*", { ignoreInitial: false }, gulp.series(build, js, css));
 };
 
-exports.prod = function () {
-  gulp.series(build, js, css);
-};
+exports.prod = gulp.series(build, js, css);

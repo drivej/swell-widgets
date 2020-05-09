@@ -15,7 +15,7 @@ app.all("/api/stories", (req, res) => {
 
 if (process.env.PORT && !isNaN(process.env.PORT)) {
   app.listen(process.env.PORT, function () {
-    console.log("Running on port", process.env.PORT);
+    console.log("Running on env port", process.env.PORT);
   });
 } else {
   const openport = require("openport");
