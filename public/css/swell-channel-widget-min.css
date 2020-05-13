@@ -1,3 +1,66 @@
+.swell-widget * {
+  position: static;
+  z-index: auto;
+  background: transparent none repeat scroll 0 0;
+
+  float: none;
+  clear: none;
+
+  padding: 0;
+  margin: 0;
+  border: 0 solid #000;
+
+  min-height: auto;
+  max-height: none;
+  height: auto;
+
+  min-width: auto;
+  max-width: none;
+  width: auto;
+
+  list-style: disc outside none;
+  letter-spacing: normal;
+  text-align: left;
+  text-decoration: none;
+  text-indent: 0;
+  text-transform: none;
+  white-space: normal;
+  word-spacing: normal;
+  vertical-align: baseline;
+
+  unicode-bidi: normal;
+  direction: ltr;
+
+  clip: auto;
+  overflow: visible;
+  visibility: visible;
+  outline: invert none medium;
+
+  display: inline;
+  cursor: auto;
+}
+
+.swell-widget div,
+.swell-widget ul,
+.swell-widget dl,
+.swell-widget dt,
+.swell-widget dd,
+.swell-widget h2,
+.swell-widget h3,
+.swell-widget {
+  display: block;
+}
+
+.swell-widget b,
+.swell-widget strong {
+  font-weight: bold;
+}
+
+.swell-widget i,
+.swell-widget em {
+  font-style: italic;
+}
+
 /*
 
 general

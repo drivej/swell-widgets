@@ -7,7 +7,7 @@
   "description": "Swell channel widget for the web",
   "main": "index.js",
   "scripts": {
-    "start": "gulp prod && node index",
+    "start": "node index",
     "dev": "gulp dev & node index"
   },
   "repository": {
