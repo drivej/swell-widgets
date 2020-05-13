@@ -3,81 +3,189 @@
   <head>
     <meta charset="UTF-8" />
     <title>Swell Widget Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+
     <style>
-      pre {
-        color: orange;
-        overflow: auto;
-        width: 100%;
-        display: block;
+      section {
+        padding: 20px;
       }
-      .pre-wrapper {
-        background-color: #111;
+      pre {
         border-radius: 5px;
-        margin-top: 20px;
-        padding: 10px;
+        padding: 20px;
+        background-color: #111;
+        color: orange;
+      }
+      .table td {
+        vertical-align: middle;
+      }
+      .table-sm {
+        font-size: 13px;
       }
     </style>
+
+    <script>
+      function generateWidget() {
+        console.log("generateWidget");
+        var $widget = document.getElementById("demo-widget");
+        $widget.dataset.limit = document.querySelector('[name="data-limit"]').value;
+        $widget.dataset.header = document.querySelector('[name="data-header"]').value;
+        $widget.dataset.footer = document.querySelector('[name="data-footer"]').value;
+        $widget.dataset.scroll = document.querySelector('[name="data-scroll"]').value;
+        $widget.style.width = document.querySelector('[name="widget-width"]').value + "%";
+        $widget.style.height = document.querySelector('[name="widget-height"]').value + "px";
+
+        // don't lock height if scroll is turned off!
+        if ($widget.dataset.scroll == "0") {
+          $widget.style.height = "auto";
+        }
+        var attr = [];
+        attr.push('data-swellwidget="channelList"');
+        attr.push('data-swellid="@user"');
+
+        if ($widget.dataset.limit != "0") {
+          attr.push('data-limit="' + $widget.dataset.limit + '"');
+        }
+        if ($widget.dataset.header != "1") {
+          attr.push('data-header="0"');
+        }
+        if ($widget.dataset.footer != "1") {
+          attr.push('data-footer="0"');
+        }
+        if ($widget.dataset.scroll != "1" && $widget.style.height != "0px") {
+          attr.push('data-scroll="0"');
+        }
+
+        attr.push('style="width:' + $widget.style.width + "; height:" + $widget.style.height + '"');
+
+        document.getElementById("demo-code").textContent = "<div " + attr.join(" ") + '></div>\n\n// insert inside body tag at the bottom\n<body>\n// your site\n<script src="/js/swell-channel-widget-min.js"><' + "/script>\n</body>";
+        Swell.renderWidget($widget);
+      }
+    </script>
   </head>
   <body>
-    <div style="padding: 20px;"><h1>Swell Channel Widget (swell-widgets)</h1></div>
-    <!-- <div style="display: flex; flex-direction: row;"> -->
-    <div style="padding: 20px;">
-      <h1>Default</h1>
-      <script src="/js/swell-channel-widget-min.js" data-swellid="@user"></script>
-      <div class="pre-wrapper">
-        <pre>
-          <script>
-            document.currentScript.parentNode.textContent = '<script src="/js/swell-channel-widget-min.js" data-swellid="@user"><' + '/script>';
-          </script>
-        </pre>
-      </div>
-    </div>
-    <div style="padding: 20px; flex: 0 0 50%;">
-      <h1>Fixed Size</h1>
-      <script src="/js/swell-channel-widget-min.js" data-swellid="@user" data-width="400px" data-height="400px"></script>
-      <div class="pre-wrapper">
-        <pre>
-          <script>
-            document.currentScript.parentNode.textContent = '<script src="/js/swell-channel-widget-min.js" data-swellid="@user" data-width="400px" data-height="400px"><' + '/script>';
-          </script>
-        </pre>
-      </div>
-    </div>
-    <!-- </div> -->
-    <!-- <div style="display: flex; flex-direction: row;"> -->
-    <div style="padding: 20px; flex: 1 1 50%;">
-      <h1>No Header</h1>
-      <script src="/js/swell-channel-widget-min.js" data-swellid="@user" data-header="0"></script>
-      <div class="pre-wrapper">
-        <pre>
-          <script>
-            document.currentScript.parentNode.textContent = '<script src="/js/swell-channel-widget-min.js" data-swellid="@user" data-header="0"><' + '/script>';
-          </script>
-        </pre>
-      </div>
-    </div>
-    <div style="padding: 20px; flex: 1 1 50%;">
-      <h1>No Scroll</h1>
-      <script src="/js/swell-channel-widget-min.js" data-swellid="@user" data-width="400px" data-scroll="0"></script>
-      <div class="pre-wrapper">
-        <pre>
-          <script>
-            document.currentScript.parentNode.textContent = '<script src="/js/swell-channel-widget-min.js" data-swellid="@user" data-width="400px" data-scroll="0"><' + '/script>';
-          </script>
-        </pre>
-      </div>
-    </div>
-    <!-- </div> -->
+    <section>
+      <h1>Swell Channel Widget</h1>
+    </section>
 
-    <!-- <p>This is before the widget</p>
-        <div style="width:50%"><script src="/js/swell-channel-widget-min.js" data-swellid="@user" data-limit="3" data-height="600px"></script></div>
-        <p>This is after the widget</p>
-        <script src="/js/swell-channel-widget-min.js" data-swellid="@user"></script>
-        <hr>
-        <script src="/js/swell-channel-widget-min.js" data-swellid="@user" data-width="400px" data-height="400px"></script>
-        <hr>
-        <script src="/js/swell-channel-widget-min.js" data-swellid="@user" data-width="400px" data-height="400px" data-header="0"></script> -->
+    <section>
+      <h3>Options</h3>
+      <form onchange="generateWidget()">
+        <table class="table table-sm table-bordered text-sm">
+          <thead class="bg-light">
+            <tr>
+              <th>Name</th>
+              <th>Description</th>
+              <th>Attribute=Value</th>
+              <th>Try It!</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Limit</td>
+              <td>Set the maxmimum number of stories to show.</td>
+              <td>data-limit="[int]"</td>
+              <td><input class="form-control form-control-sm" name="data-limit" type="number" step="1" min="1" max="20" value="5" /></td>
+            </tr>
+            <tr>
+              <td>Header</td>
+              <td>Show/hide the header</td>
+              <td>data-header="[0,1]"</td>
+              <td>
+                <select class="form-control form-control-sm" name="data-header"
+                  ><option value="1" selected>1</option
+                  ><option value="0">0</option></select
+                >
+              </td>
+            </tr>
+            <tr>
+              <td>Footer</td>
+              <td>Show/hide the footer</td>
+              <td>data-footer="[0,1]"</td>
+              <td>
+                <select class="form-control form-control-sm" name="data-footer"
+                  ><option value="1" selected>1</option
+                  ><option value="0">0</option></select
+                >
+              </td>
+            </tr>
+            <tr>
+              <td>Scroll</td>
+              <td>Allow scroll or expand to show all stories</td>
+              <td>data-scroll="[0,1]"</td>
+              <td>
+                <select class="form-control form-control-sm" name="data-scroll"
+                  ><option value="1" selected>1</option
+                  ><option value="0">0</option></select
+                >
+              </td>
+            </tr>
+            <tr>
+              <td>Width</td>
+              <td>Width set with CSS on the container</td>
+              <td>style="width:20%;"</td>
+              <td>
+                <div class="input-group input-group-sm">
+                  <input class="form-control" name="widget-width" type="number" step="10" min="10" max="100" value="50" />
+                  <div class="input-group-append">
+                    <span class="input-group-text">%</span>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>Height</td>
+              <td>Height set with CSS on the container</td>
+              <td>style="height:400px;"</td>
+              <td>
+                <div class="input-group input-group-sm">
+                  <input class="form-control" name="widget-height" type="number" step="100" min="0" max="1000" value="300" />
+                  <div class="input-group-append">
+                    <span class="input-group-text">px</span>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </form>
+    </section>
 
-    <hr />
+    <section>
+      <h3>Demo</h3>
+      <div id="demo-widget" class="shadow" data-swellwidget="channelList" data-swellid="@user"></div>
+    </section>
+
+    <section>
+      <h3>Code</h3>
+      <pre><code id="demo-code"></code></pre>
+    </section>
+
+    <section>
+      <p>
+        Swell's channel widget displays your channels stories in a simple list. Create a div on your site with the appropriate attributes and place the Swell widget javascript tag at the bottom of your body tag. Choose to show/hide the header or footer and decide if you want to scroll the stories or expand to show all.
+      </p>
+      <h4>Technical Points</h4>
+      <ul>
+        <li>Widget only loads when visible on the screen.</li>
+        <li>Multiple widgets can be on the same page.</li>
+      </ul>
+      <h4>Todos:</h4>
+      <ul>
+        <li>Combine CSS into js to reduce calls</li>
+        <li>Integrate API call for stories - currently stub data</li>
+      </ul>
+    </section>
+    <section>
+      <div data-swellwidget="channelList" data-swellid="@user" data-limit="5" style="width: 50%; height: 300px;" class="shadow"></div>
+    </section>
+
+    <!-- Standard integration -->
+    
+    <script src="/js/Swell.min.js"></script>
+    <script>
+      generateWidget();
+    </script>
   </body>
 </html>
