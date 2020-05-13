@@ -21,8 +21,10 @@
   },
   "homepage": "https://github.com/drivej/swell-widgets#readme",
   "dependencies": {
+    "express": "^4.16.4"
+  },
+  "devDependencies": {
     "del": "^3.0.0",
-    "express": "^4.16.4",
     "gulp": "^4.0.2",
     "gulp-change": "^1.0.0",
     "gulp-clean": "^0.3.2",
@@ -33,9 +35,7 @@
     "gulp-wrap": "^0.14.0",
     "node-fetch": "^2.6.0",
     "openport": "0.0.6",
-    "opn": "^5.4.0"
-  },
-  "devDependencies": {
+    "opn": "^5.4.0",
     "@babel/core": "^7.9.6",
     "@babel/preset-env": "^7.9.6",
     "babel-core": "^6.26.3",
