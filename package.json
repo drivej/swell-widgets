@@ -34,7 +34,7 @@
     "gulp-rename": "^1.2.2",
     "gulp-uglify": "^2.0.0",
     "gulp-wrap": "^0.14.0",
-    "node-fetch": "^2.6.0",
+    "node-fetch": "^2.6.1",
     "openport": "0.0.6",
     "opn": "^5.4.0",
     "@babel/core": "^7.9.6",
