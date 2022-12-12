@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/drivej/swell-widgets#readme",
   "dependencies": {
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "clean-css": ">=4.1.11"
   },
   "devDependencies": {
